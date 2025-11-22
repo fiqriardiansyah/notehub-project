@@ -22,7 +22,8 @@ services:
     depends_on:
       - postgres
     env_file:
-      - .notehub-api.env
+      - ../notehub-api/.env
+    restart: always
 
   migrate:
     build:
@@ -31,4 +32,15 @@ services:
     depends_on:
       - postgres
     env_file:
-      - .notehub-api.env
+      - ../notehub-api/.env
+    restart: "on-failure"
+
+  notehub:
+    build:
+      context: ../notehub-app
+      dockerfile: ../notehub-app/app.dockerfile
+    ports:
+      - 3000:4173
+    env_file:
+      - ../notehub-app/.env
+    restart: always
