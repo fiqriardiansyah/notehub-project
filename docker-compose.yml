@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
     env_file:
-      - ../notehub-api/.env
+      - .be.env
     restart: always
 
   migrate:
@@ -32,7 +32,7 @@ services:
     depends_on:
       - postgres
     env_file:
-      - ../notehub-api/.env
+      - .be.env
     restart: "on-failure"
 
   notehub:
@@ -42,5 +42,5 @@ services:
     ports:
       - 3000:4173
     env_file:
-      - ../notehub-app/.env
+      - .fe.env
     restart: always
