@@ -24,7 +24,7 @@ services:
     env_file:
       - .be.env
     restart: always
-    image: notehub-api:latest
+    image: fiqriardiansyah/notehub-api:latest
 
   migrate:
     build:
@@ -35,7 +35,7 @@ services:
     env_file:
       - .be.env
     restart: "on-failure"
-    image: notehub-migrate:latest
+    image: fiqriardiansyah/notehub-migrate:latest
 
   notehub:
     build:
@@ -46,4 +46,4 @@ services:
     env_file:
       - .fe.env
     restart: always
-    image: notehub:latest
+    image: fiqriardiansyah/notehub:latest
